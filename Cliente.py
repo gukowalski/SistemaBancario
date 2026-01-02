@@ -1,8 +1,8 @@
-from datetime import datetime, timedelta
+
 
 class Cliente:
     
-    def __init__(self, name, cpf, num):
+    def __init__(self, name: str, cpf: str, num: str):
         self._name = name
         self._cpf = cpf
         self._num = num
