@@ -1,4 +1,4 @@
-
+from ContaBancaria import ContaBancaria
 
 class Cliente:
     
@@ -8,8 +8,18 @@ class Cliente:
         self._num = num
         self._accounts = []
 
+    @property
+    def name(self):
+        return self._name
+
     def __str__(self):
-        return f'O Cliente {self._name} está ativado, e possue {len(self._accounts)} contas'
+        return f'O Cliente {self._name} está ativado, e possue {len(self._accounts)} conta'
 
-
- 
+    def create_account(self):
+        account = ContaBancaria(self)
+        self._accounts.append(account)
+        return 'Conta criada com sucesso'
+    
+    def view_accounts(self):
+        for conta in self._accounts:
+            print(conta)
