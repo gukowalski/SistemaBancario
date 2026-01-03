@@ -26,8 +26,23 @@ class Cliente:
 
     def open_account(self, acc_number):
         for account in self._accounts:
-            if not account.__account_number == acc_number:
-                return 'A conta não existe' 
-            return account
+            if account._account_number == acc_number:
+                return account
+      
+    def deposit(self, acc_number, amount):
+        account = self.open_account(acc_number)
+
+        if account is None:
+            return "Conta não existe"
+
+        account.deposit(amount)
+        return "O deposito na conta foi efetuado com sucesso"
+    
+    def withdrawal(self, acc_number, amount):
+        account = self.open_account(acc_number)
+
+        if account is None:
+            return "Conta não existe"
         
-        
+        account.withdrawal(amount)
+        return "Saque realizado com sucesso"
