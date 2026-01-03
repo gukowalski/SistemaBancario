@@ -23,3 +23,11 @@ class Cliente:
     def view_accounts(self):
         for conta in self._accounts:
             print(conta)
+
+    def open_account(self, acc_number):
+        for account in self._accounts:
+            if not account.__account_number == acc_number:
+                return 'A conta não existe' 
+            return account
+        
+        
